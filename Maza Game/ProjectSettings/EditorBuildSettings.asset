@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Loading screen.unity
+    guid: 299f616b900a9ec4889072c2dae4d424
+  - enabled: 1
+    path: Assets/Scenes/Option Screen.unity
+    guid: 194bcbb2138cb914eb0078f7f6e7929e
+  - enabled: 1
+    path: Assets/Scenes/Won Game.unity
+    guid: 7189f95851da1414eb49759d81119f18
+  - enabled: 1
+    path: Assets/Scenes/Level I.unity
+    guid: dec4363ee0e3f6848b4bd3525b66742d
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: cf719447817973e46aadcb4a39d7de58
+  - enabled: 1
+    path: Assets/Scenes/Level Menu.unity
+    guid: 244b1dd7f53392d4ca7de5534a85be1f
+  - enabled: 1
+    path: Assets/Scenes/Room.unity
+    guid: 4f2b1963fa821e743a0132e11a3597f3
+  - enabled: 1
+    path: Assets/Scenes/Achived Scene/Win Screen.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Achived Scene/Level 1.unity
+    guid: 6fb08ba903555ca42a5ac772f59ad5b9
+  - enabled: 1
+    path: Assets/Scenes/Achived Scene/game test.unity
+    guid: e88314b9724602c4780ea7308d931141
+  m_configObjects: {}
