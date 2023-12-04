@@ -131,6 +131,10 @@ public class RoomUI : NetworkBehaviour
             Debug.Log("Toggle is off");
         }
     }
+    public void GoHome()
+    {
+        SceneManager.LoadScene("Home Screen");
+    }
 
 
 }

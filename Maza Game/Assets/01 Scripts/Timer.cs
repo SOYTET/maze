@@ -10,6 +10,10 @@ public class Timer : NetworkBehaviour
     public float remainingTime;
     public static bool isTimeOut;
     private bool isStartTime;
+    public override void OnNetworkSpawn()
+    {
+        isStartTime = true;
+    }
     void Update()
     {
         if (isStartTime)
@@ -22,10 +26,8 @@ public class Timer : NetworkBehaviour
         if (remainingTime < 1)
         {
             isTimeOut = true;
-        }
-        if (LobbyManager.startedGame)
-        {
-            isStartTime = true;
+            remainingTime = 600f;
+            Debug.Log("Time is out");
         }
     }
 }

@@ -109,6 +109,10 @@ public class FPSController : NetworkBehaviour
 
     void Update()
     {
+        if(Timer.isTimeOut)
+        {
+            gameObject.transform.position = new Vector3(0,10,0);
+        }
         if (currentPlayMode == PlayMode.online)
         {
             if(!Application.isFocused)
@@ -139,14 +143,10 @@ public class FPSController : NetworkBehaviour
         }
         if (IsOwner)
         {
-            if(Input.GetKeyDown(KeyCode.F1))
+            if(Input.GetKey(KeyCode.F1))
             {
                 NetworkManager.Singleton.Shutdown();
-                SceneManager.LoadScene("Home");
-            }
-            else if (Input.GetKey(KeyCode.F2))
-            {
-                LobbyManager.Instance.StartGame();
+                SceneManager.LoadScene("Home Screen");
             }
         }
         //Method
@@ -320,6 +320,7 @@ public class FPSController : NetworkBehaviour
     }
 
     //check and asign role of player
+    
 
 
 }

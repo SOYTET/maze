@@ -31,6 +31,7 @@ public class LobbyManager : NetworkBehaviour
 
     public NetworkVariable<int> PlayerInGame = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone);
     public NetworkVariable<bool> CloseGame = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone);
+    public GameObject LoadingScreen;
 
     //public static NetworkVariable<Dictionary<int, string>> MyPlayerWinner = new NetworkVariable<Dictionary<int, string>>(writePerm: NetworkVariableWritePermission.Server);
 
@@ -106,17 +107,13 @@ public class LobbyManager : NetworkBehaviour
 
             ShowPlayersOnLobby();
 			InvokeRepeating("LobbyHeartBeat", 5, 5);
-            //InvokeRepeating("LobbyUpdateHeartBeat", 4, 4);
         }
         catch (LobbyServiceException e)
         {
             Debug.Log(e);
         }
-
-
     }
       
-
     void CheckForLobbyUpdates()
     {
         if(joinnedLobby == null || startedGame)
@@ -136,7 +133,12 @@ public class LobbyManager : NetworkBehaviour
                 ParentContainerName.SetActive(false);
             }
             startedGame = true;
+            LoadingScreen.SetActive(true);
         }
+    }
+    public override void OnNetworkSpawn()
+    {
+        LoadingScreen.SetActive(false);
     }
     async void LobbyHeartBeat()
     {
@@ -267,6 +269,7 @@ public class LobbyManager : NetworkBehaviour
 
     public async void StartGame()
     {
+        LoadingScreen.SetActive(true);
         string relayCode = await CreateRelay();
         PlayerNameDisplayPrefab.SetActive(false);
         lobbyCodeText.enabled = false;
